@@ -32,3 +32,12 @@ class YaDiskApi:
             headers=self.get_headers(),
         )
         return res.json()
+
+    def del_dir(self, dir_name, dir_path = '/'):
+        url_get_metadata = self.url + 'resources'
+        res = requests.delete(
+            url=url_get_metadata,
+            params={'path': f'{dir_path.rstrip("/")}/{dir_name}'},
+            headers=self.get_headers(),
+        )
+        return res.status_code

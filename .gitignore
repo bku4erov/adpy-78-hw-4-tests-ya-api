@@ -1,2 +1,3 @@
 config.txt
-__pycache__/yadiskapi.cpython-38.pyc
+__pycache__
+.vscode/settings.json

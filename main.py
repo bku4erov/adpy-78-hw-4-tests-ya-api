@@ -5,7 +5,7 @@ from yadiskapi import YaDiskApi
 
 CONFIG_FILENAME = 'config.txt'
 
-if __name__ == '__main__':
+def load_ya_token():
     ya_disk_token = None
 
     # load Yandex.Disk token from config file
@@ -18,13 +18,15 @@ if __name__ == '__main__':
             print(f'Error while reading config file:\n{type(config_err)}\n{config_err}')
     else:
         print('Config file not found. See "config_example.txt"')
+    return ya_disk_token
+
+if __name__ == '__main__':
+    ya_disk_token = load_ya_token()
 
     user_ya_disk_api = YaDiskApi(ya_disk_token)
 
     res = user_ya_disk_api.create_dir('test')
-
     print(res)
 
     res = user_ya_disk_api.check_dir('test')
-
     print(res)
